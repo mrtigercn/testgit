@@ -1,0 +1,20 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+import pandas as pd
+
+url = 'https://raw.github.com/pydata/pandas/master/pandas/tests/data/tips.csv'
+tips1 = pd.read_csv(url)
+tips = pd.read_csv(r'D:\s\db\tips.csv')
+tips.head()
+
+s = pd.Series([1,3,5,np.nan,6,8])
+s
+
+dates = pd.date_range('20130101',periods=6)
+dates
+
+df = pd.DataFrame(np.random.randn(6,4),index=dates,columns=list(¡¯ABCD¡¯))
+df = pd.DataFrame(np.random.randn(6,4),index=dates,columns=list(¡¯ABCD¡¯))
+df
+

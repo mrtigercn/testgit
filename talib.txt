@@ -31,3 +31,9 @@ slowk, slowd = STOCH(inputs, 5, 3, 0, 3, 0) # uses high, low, close by default
 # uses high, low, open instead
 slowk, slowd = STOCH(inputs, 5, 3, 0, 3, 0, prices=['high', 'low', 'open'])
 
+
+
+import talib
+inputs = np.random.random(100)
+outputs = talib.SMA(inputs, timeperiod=25)
+
