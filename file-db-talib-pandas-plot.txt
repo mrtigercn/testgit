@@ -10,7 +10,7 @@ class dayK(Structure):
      _fields_ = [ ('date',c_int), ('o',c_int), ('h',c_int), ('l',c_int), ('c',c_int), ('amnt',c_float), ('vol',c_int), ('pre_c',c_int) ]
 
 import sqlite3
-conn = sqlite3.connect( r'D:\s\db\dayk.db' )
+conn = sqlite3.connect( r'D:\bak\s\db\dayk.db' )
 cur = conn.cursor()
 cur.execute( 'create table if not exists dayK(pid, date, o, h, l, c, amt, vol)')
 conn.commit()
@@ -58,11 +58,32 @@ import pandas as pd
 
 url = 'https://raw.github.com/pydata/pandas/master/pandas/tests/data/tips.csv'
 tips1 = pd.read_csv(url)
-tips = pd.read_csv(r'D:\s\db\tips.csv')
+tips = pd.read_csv(r'D:\bak\s\db\tips.csv')
 tips.head()
 
 outputs = talib.SMA(tips1.tip.values, timeperiod=5)
 
 dayk000001 = pd.read_sql_query('select * from dayK where pid="sz000001"', conn)
-outputs = talib.SMA( dayk000001.c.values, timeperiod=15)
+sma5 = talib.SMA( dayk000001.c.values, timeperiod=5)
+sma10 = talib.SMA( dayk000001.c.values, timeperiod=10)
+sma20 = talib.SMA( dayk000001.c.values, timeperiod=20)
+sma60 = talib.SMA( dayk000001.c.values, timeperiod=60)
+
+cci14 = talib.CCI( dayk000001.h.values, dayk000001.l.values, dayk000001.c.values)
+
+#<TICKER>,<DTYYYYMMDD>,<TIME>,<OPEN>,<HIGH>,<LOW>,<CLOSE>,<VOL>
+#EURUSD,20010102,230100,0.9507,0.9507,0.9507,0.9507,4
+#EURUSD,20010102,230200,0.9506,0.9506,0.9505,0.9505,4
+#EURUSD,20140530,185900,1.3638,1.3639,1.3638,1.3639,4
+#EURUSD,20140530,190000,1.3638,1.3638,1.3629,1.3629,4
+tips2 = pd.read_csv(r'C:\Users\c52139\Documents\marketdata-yun\EURUSD.txt')
+tips2 = pd.read_csv(r'C:\Users\c52139\Documents\marketdata-yun\EURUSD.txt', names=['pid','date','time','o','h','l','c','vol'])
+tips2 = pd.read_csv(r'C:\Users\c52139\Documents\marketdata-yun\EURUSD.txt', header=0, names=['pid','date','time','o','h','l','c','vol'])
+sma5 = talib.SMA( tips2.c.values, timeperiod=5)
+sma10 = talib.SMA( tips2.c.values, timeperiod=10)
+sma20 = talib.SMA( tips2.c.values, timeperiod=20)
+sma60 = talib.SMA( tips2.c.values, timeperiod=60)
+cci14 = talib.CCI( tips2.h.values, tips2.l.values, tips2.c.values)
+
+tips2.to_sql('minK', conn, if_exists='append')
 
