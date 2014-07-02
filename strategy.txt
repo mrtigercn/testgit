@@ -54,3 +54,12 @@ waittogo:
 
 
 assumption validate
+
+
+
+autochooseprodfromtaobao
+ previous bought
+ sale most
+ check bad comment
+ price trend
+ credit of seller

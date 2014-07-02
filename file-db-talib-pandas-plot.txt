@@ -86,4 +86,5 @@ sma60 = talib.SMA( tips2.c.values, timeperiod=60)
 cci14 = talib.CCI( tips2.h.values, tips2.l.values, tips2.c.values)
 
 tips2.to_sql('minK', conn, if_exists='append')
+#start 52:46 54:46
 

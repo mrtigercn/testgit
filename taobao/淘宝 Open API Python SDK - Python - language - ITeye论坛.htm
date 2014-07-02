@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>淘宝 Open API Python SDK - Python - language - ITeye论坛</title>
+    <meta name="description" content="最近需要在 django 上跑淘宝的 open API ，所以封装了一些常用的API。 使用说明：     修改sercetCode与api_key可以去base.py里找。(为了方便说明，我已经注册了一个)     用的是淘宝 Open API 2.0 版本。     返回的数据只做了json处理，XML还没有做。(需要安装 simplejson库)     有两个方法:       setPar ..." />
+    <meta name="keywords" content="Python language" />
+    <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+    <link href="/rss/board/language" rel="alternate" title="ITeye论坛" type="application/rss+xml" />
+    <link rel="search" type="application/opensearchdescription+xml" href="/open_search.xml" title="ITeye" />
+    <link href="http://www.iteye.com/stylesheets/forum.css?1393920955" media="screen" rel="stylesheet" type="text/css" />
+    <script src="http://www.iteye.com/javascripts/application.js?1358214518" type="text/javascript"></script>
+    <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-535605-1']);
+  _gaq.push(['_setDomainName', 'iteye.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+      <link href="http://www.iteye.com/javascripts/syntaxhighlighter/SyntaxHighlighter.css?1348819953" media="screen" rel="stylesheet" type="text/css" />
+  <script src="http://www.iteye.com/javascripts/syntaxhighlighter/shCoreCommon.js?1325907333" type="text/javascript"></script>
+<script src="http://www.iteye.com/javascripts/hotkey.js?1324994303" type="text/javascript"></script>
+  <script src="http://www.iteye.com/javascripts/code_favorites.js?1358214518" type="text/javascript"></script>
+          <script src="http://www.iteye.com/javascripts/dragdrop.js?1324994303" type="text/javascript"></script>
+          </head>
+  <body>
+    <div id="page">
+      <div id="header">
+        <div class="clearfix"><div id="user_nav">
+      <a href="/login" class="welcome" title="登录">您还未登录 !</a>
+    <a href="/login">登录</a>
+    <a href="/signup" class="nobg">注册</a>
+  </div>
+</div>
+        <div class="clearfix">
+          <div id="branding">
+            <a href="http://www.iteye.com"><img alt="ITeye-最棒的软件开发交流社区" src="http://www.iteye.com/images/logo.gif?1324994303" title="ITeye-最棒的软件开发交流社区" /></a>
+          </div>
+          <div id="gg"><IFRAME SRC="/iframe_ggbd/942" SCROLLING=no WIDTH=728 HEIGHT=90 FRAMEBORDER=0></IFRAME></div>
+        </div>
+      </div>
+
+      <div id="content" class="clearfix">
+        <div id="main">
+          
+
+
+
+          
+
+<div class="h-entry" style='display:none'>
+  <a href="http://duka.iteye.com" class="p-author" target="_blank">duka</a>
+</div>
+
+
+<div class="clearfix">
+  <div class="crumbs">
+    <a href="/forums">论坛首页</a> <span class="arrow">&rarr;</span>
+    <a href="/forums/board/language">编程语言技术论坛</a> <span class="arrow">&rarr;</span>
+    <h1>淘宝 Open API Python SDK</h1>
+  </div>
+</div>
+
+
+  <div id="forum_tag_list">
+    <a href="/forums/board/language">全部</a>
+          <a href='/forums/tag/Ruby'>Ruby</a>
+          <a href='/forums/tag/Python'>Python</a>
+          <a href='/forums/tag/PHP'>PHP</a>
+          <a href='/forums/tag/Flash'>Flash</a>
+          <a href='/forums/tag/C++'>C++</a>
+          <a href='/forums/tag/.net'>.net</a>
+              <a href="/forums/tag/Rails">Rails</a>
+          <a href="/forums/tag/Flex">Flex</a>
+          <a href="/forums/tag/C">C</a>
+          <a href="/forums/tag/C%23">C#</a>
+          <a href="/forums/tag/Django">Django</a>
+      </div>
+
+
+<div class="actions">
+  <div class="buttons"></div>
+  <div class="wrapper">
+    <div id="forum_recommended_f4"></div>
+    
+    <div class="info">浏览 8424 次</div>
+  </div>
+</div>
+
+
+
+<table id="forum_main" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="2" class="topic_title">
+        <div class="wrapper"><span class='locked'>锁定老帖子</span> <a href="/topic/634202">主题：淘宝 Open API Python SDK</a></div>
+        <div id='topic_rate_box'>精华帖 (0) :: 良好帖 (0) :: 新手帖 (0) :: 隐藏帖 (0)</div>
+      </th>
+    </tr>
+    <tr>
+      <td class="first_col">作者</td>
+      <td class="last_col">正文
+      
+      </td>
+    </tr>
+  </thead>
+  <tbody id="posts">
+    <tr id="1438407">
+  <td class="postauthor">
+    <ul>
+      <li class="name">duka</li>
+      <li>等级: 初级会员</li>
+      <li><a href='http://duka.iteye.com' target='_blank'><img alt="duka的博客" class="logo" src="http://www.iteye.com/upload/logo/user/229846/cc3238d7-b25a-38ff-b871-91d0e9ba3fd0.jpg?1270520695" title="duka的博客: django and python" /></a></li>
+      <li>性别: <img src="/images/icon_minigender_1.gif" title="男"/></li>      <li>文章: 61</li>
+      <li>积分: 90</li>
+      <li>来自: 北京</li>
+      <li><img src='/images/status/offline.gif'/></li>
+    </ul>
+  </td>
+  <td class="postcontent">
+    <div class="postactions">
+      <div class="description">
+        &nbsp;&nbsp;
+        发表时间：2010-04-06&nbsp;&nbsp;
+        
+      </div>
+      <div class="links">
+        
+        
+          
+          
+        
+      </div>
+    </div>
+    <div class="postbody clearfix">
+      
+        
+              <script type="text/javascript">
+      var hunters = ["\u003Ca href='/jobs/2509' target='_blank' style='color:#000;'\u003E\u003Cspan style='font-weight:bold;'\u003E\u4e0a\u6d77: \u003C/span\u003E Junior Product Manager\u003C/a\u003E","\u003Ca href='/jobs/1848' target='_blank' style='color:#000;'\u003E\u003Cspan style='font-weight:bold;'\u003E\u5317\u4eac: \u003C/span\u003E ITeye\u7f51\u7ad9\u8bda\u8058\u793e\u533a\u7f16\u8f91\u003C/a\u003E","\u003Ca href='/jobs/2506' target='_blank' style='color:#000;'\u003E\u003Cspan style='font-weight:bold;'\u003E\u5317\u4eac: \u003C/span\u003E \u3010\u5317\u4eac\u3011\u6e38\u620f\u516c\u53f8\u8bda\u9080php\u5f00\u53d1\u5de5\u7a0b\u5e08\u003C/a\u003E","\u003Ca href='/jobs/2507' target='_blank' style='color:#000;'\u003E\u003Cspan style='font-weight:bold;'\u003E\u5317\u4eac: \u003C/span\u003E \u3010\u5317\u4eac\u3011\u6570\u636e\u5206\u6790\u9ad8\u7ea7\u5de5\u7a0b\u5e08/\u7ecf\u7406\u003C/a\u003E","\u003Ca href='/jobs/2508' target='_blank' style='color:#000;'\u003E\u003Cspan style='font-weight:bold;'\u003E\u4e0a\u6d77: \u003C/span\u003E Senior Software Engineer\u003C/a\u003E"]
+      var hunter_id = Math.ceil(Math.random() * hunters.length) - 1;
+      if(hunter_id == -1) hunter_id = 0;
+    </script>
+    <div id="hunter_recommended" style="background:#fff;border: 1px solid #ccc; padding: 4px;margin-bottom: 10px;">
+      <span id="hunters_nav" style="margin-right:5px;">
+        <a href="#" onclick="hunter_id <= 0 ? hunter_id = hunters.length - 1 : hunter_id--; $('hunters').update(hunters[hunter_id]);return false;" style="border:1px solid #ccc;padding: 0 3px;size: 13px;text-decoration: none;">&lt;</a>
+        <a href="#" onclick="hunter_id >= hunters.length - 1 ? hunter_id = 0 : hunter_id++; $('hunters').update(hunters[hunter_id]);return false;" style="border:1px solid #ccc;padding: 0 3px;size :13px;text-decoration: none;">&gt;</a>
+      </span>
+      猎头职位: <span id="hunters"></span>
+      <script type="text/javascript">$('hunters').update(hunters[hunter_id]);</script>
+    </div>
+
+        
+      
+                                            <div id="related_topics">相关文章: <span class="close"><a href="#" onclick="$('related_topics').hide();if($('hunter_recommended')){$('hunter_recommended').style.width='780px'};if($('topic_tags')){$('topic_tags').style.width='790px'};return false;" title="关闭">&nbsp;</a></span>
+              <ul>
+                                  <li><a href='http://www.iteye.com/topic/25003' title='Ruby和Python的语法差别' target='_blank'>Ruby和Python的语法差别</a></li>
+                                  <li><a href='http://www.iteye.com/topic/1118802' title='模拟hibernate，实现了增删改查以及按id查询' target='_blank'>模拟hibernate，实现了增删改查以及按id查询</a></li>
+                                  <li><a href='http://www.iteye.com/topic/34613' title='补发：澄清Python的Open class' target='_blank'>补发：澄清Python的Open class</a></li>
+                              </ul>
+              <br/><span>推荐群组: <a href="http://onlypython.group.iteye.com" target="_blank">Python</a></span>
+              <br/><a href="/wiki/topic/634202" target="_blank">更多相关推荐</a>
+            </div>
+            <script type="text/javascript">
+              document.observe("dom:loaded", function() {
+                if($('hunter_recommended')) {
+                  $('hunter_recommended').setStyle({cssFloat: 'left', width: '557px'})
+                }
+                if($('topic_tags')) {
+                  $('topic_tags').setStyle({width: '567px'})
+                }
+                new Draggable("related_topics");
+              });
+            </script>
+                          
+          <div id="topic_tags" class="news_tag">
+                          <a href="/forums/tag/Python">Python</a>
+                      </div>
+        
+      
+      最近需要在 django 上跑淘宝的 open API ，所以封装了一些常用的API。<br /><strong>使用说明：</strong><br />&nbsp;&nbsp;&nbsp; 修改sercetCode与api_key可以去base.py里找。(为了方便说明，我已经注册了一个)<br />&nbsp;&nbsp;&nbsp; 用的是淘宝 Open API 2.0 版本。<br />&nbsp;&nbsp;&nbsp; 返回的数据只做了json处理，XML还没有做。(需要安装 simplejson库)<br />&nbsp;&nbsp;&nbsp; 有两个方法:<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setParams<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setFields<br />下载地址：<a target="_blank" href="http://code.google.com/p/python-taobao-open-sdk2/">http://code.google.com/p/python-taobao-open-sdk2/</a><br /><br /><br /><strong>例子：</strong><br />普通用法:<br /><br /><pre class="python" name="code">from taobaoapi2 imoprt * 
+ 
+itemsget = ItemsGet() 
+itemsget.setParams(nicks='etanliuyang') 
+itemsget.fetch() 
+for x in itemsget.datas: 
+  print x['title']</pre><br /><br /><br />错误信息处理：<br /><br /><pre class="python" name="code">from taobaoapi2 imoprt * 
+ 
+itemsget = ItemsGet() 
+itemsget.setParams(nicks='v') 
+itemsget.fetch() 
+if itemsget.error_msg: print itemsget.error_msg</pre>
+    </div>
+    
+
+          <div id="topic_copyright">声明：ITeye文章版权属于作者，受法律保护。没有作者书面许可不得转载。 </div>
+      <div id="forum_recommended_f5"><span>推荐链接</span><ul><li><a href='/clicks/609' target='_blank'><script type="text/javascript">/*468*60，iteye新闻内页页底*/ var cpro_id = 'u671994';</script><script src="http://cpro.baidu.com/cpro/ui/c.js" type="text/javascript"></script></a></li></ul></div>
+              <div id="forum_recommended_f0"><IFRAME SRC="/iframe_ggbd/155" SCROLLING=no WIDTH=728 HEIGHT=90 FRAMEBORDER=0></IFRAME></div>
+        </td>
+  </tr>
+  <tr>
+    <td class="postauthor"><a href="#">返回顶楼</a></td>
+    <td class="postcontent">
+      <div class="icons">
+        <a href='http://duka.iteye.com' class='icon_www' title='浏览作者的博客'>&nbsp;</a>
+        <a href='http://duka.iteye.com/blog/profile' class='icon_profile' title='浏览作者资料'>&nbsp;</a>
+        <a href="http://my.iteye.com/messages/new?message%5Breceiver_name%5D=duka" class="icon_pm" title="发送站内短信">&nbsp;</a>
+        <a href='http://duka.iteye.com/blog/guest_book' class='icon_guestbook' title='给作者留言'>&nbsp;</a>
+        <a href="http://my.iteye.com/feed?subscription%5Bsubscribed_user_name%5D=duka" class="icon_rss" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'AeXa/hmkDCKeRsz35wxZGKEfzUx5a7MeoEcBXJbb7o0='); f.appendChild(s);f.submit();return false;" title="关注作者">&nbsp</a>
+              </div>
+                    </td>
+</tr>
+<tr class="sep2"><td colspan="2"></td></tr>
+<tr id="1452448">
+  <td class="postauthor">
+    <ul>
+      <li class="name">mshijie</li>
+      <li>等级: <img src="/images/star2.gif" alt="二星会员" title="二星会员"/></li>
+      <li><a href='http://mshijie.iteye.com' target='_blank'><img alt="mshijie的博客" class="logo" src="http://www.iteye.com/upload/logo/user/12050/24d7329a-14e2-3e47-b7c5-66e0fb431721.jpg?1236832114" title="mshijie的博客: DeveloperJ's Knowledge Base" /></a></li>
+      <li>性别: <img src="/images/icon_minigender_1.gif" title="男"/></li>      <li>文章: 46</li>
+      <li>积分: 280</li>
+      <li>来自: 杭州</li>
+      <li><img src='/images/status/offline.gif'/></li>
+    </ul>
+  </td>
+  <td class="postcontent">
+    <div class="postactions">
+      <div class="description">
+        &nbsp;&nbsp;
+        发表时间：2010-04-14&nbsp;&nbsp;
+        
+      </div>
+      <div class="links">
+        
+        
+          
+          
+          
+        
+      </div>
+    </div>
+    <div class="postbody clearfix">
+      
+      
+      这个是可以有的。
+    </div>
+    
+
+            </td>
+  </tr>
+  <tr>
+    <td class="postauthor"><a href="#">返回顶楼</a></td>
+    <td class="postcontent">
+      <div class="icons">
+        <a href='http://mshijie.iteye.com' class='icon_www' title='浏览作者的博客'>&nbsp;</a>
+        <a href='http://mshijie.iteye.com/blog/profile' class='icon_profile' title='浏览作者资料'>&nbsp;</a>
+        <a href="http://my.iteye.com/messages/new?message%5Breceiver_name%5D=mshijie" class="icon_pm" title="发送站内短信">&nbsp;</a>
+        <a href='http://mshijie.iteye.com/blog/guest_book' class='icon_guestbook' title='给作者留言'>&nbsp;</a>
+        <a href="http://my.iteye.com/feed?subscription%5Bsubscribed_user_name%5D=mshijie" class="icon_rss" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'AeXa/hmkDCKeRsz35wxZGKEfzUx5a7MeoEcBXJbb7o0='); f.appendChild(s);f.submit();return false;" title="关注作者">&nbsp</a>
+                  <a href="#1452448" title="mshijie回帖:淘宝 Open API Python SDK">回帖地址</a>
+              </div>
+                        <div id='post_rate_box_1452448' class='post_rate_box'><a href='#' onclick='return false;' class='good' title='好'>0</a> <a href='#' onclick='return false;' class='hidden' title='差'>0</a> 请登录后投票</div>              </td>
+</tr>
+<tr class="sep2"><td colspan="2"></td></tr>
+<tr id="1501036">
+  <td class="postauthor">
+    <ul>
+      <li class="name">sw1982</li>
+      <li>等级: 初级会员</li>
+      <li><a href='http://sw1982.iteye.com' target='_blank'><img alt="sw1982的博客" class="logo" src="http://www.iteye.com/upload/logo/user/915434/e1b37be6-8758-3ddf-8066-80344b8d15aa.jpg?1385431625" title="sw1982的博客: 玮哥也是哥" /></a></li>
+      <li>性别: <img src="/images/icon_minigender_1.gif" title="男"/></li>      <li>文章: 115</li>
+      <li>积分: 10</li>
+      <li>来自: 深圳</li>
+      <li><img src='/images/status/offline.gif'/></li>
+    </ul>
+  </td>
+  <td class="postcontent">
+    <div class="postactions">
+      <div class="description">
+        &nbsp;&nbsp;
+        发表时间：2010-05-19&nbsp;&nbsp;
+        
+      </div>
+      <div class="links">
+        
+        
+          
+          
+          
+        
+      </div>
+    </div>
+    <div class="postbody clearfix">
+      
+      
+      这个是必须有的
+    </div>
+    
+
+            </td>
+  </tr>
+  <tr>
+    <td class="postauthor"><a href="#">返回顶楼</a></td>
+    <td class="postcontent">
+      <div class="icons">
+        <a href='http://sw1982.iteye.com' class='icon_www' title='浏览作者的博客'>&nbsp;</a>
+        <a href='http://sw1982.iteye.com/blog/profile' class='icon_profile' title='浏览作者资料'>&nbsp;</a>
+        <a href="http://my.iteye.com/messages/new?message%5Breceiver_name%5D=sw1982" class="icon_pm" title="发送站内短信">&nbsp;</a>
+        <a href='http://sw1982.iteye.com/blog/guest_book' class='icon_guestbook' title='给作者留言'>&nbsp;</a>
+        <a href="http://my.iteye.com/feed?subscription%5Bsubscribed_user_name%5D=sw1982" class="icon_rss" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'AeXa/hmkDCKeRsz35wxZGKEfzUx5a7MeoEcBXJbb7o0='); f.appendChild(s);f.submit();return false;" title="关注作者">&nbsp</a>
+                  <a href="#1501036" title="sw1982回帖:淘宝 Open API Python SDK">回帖地址</a>
+              </div>
+                        <div id='post_rate_box_1501036' class='post_rate_box'><a href='#' onclick='return false;' class='good' title='好'>0</a> <a href='#' onclick='return false;' class='hidden' title='差'>0</a> 请登录后投票</div>              </td>
+</tr>
+<tr class="sep2"><td colspan="2"></td></tr>
+<tr id="1714740">
+  <td class="postauthor">
+    <ul>
+      <li class="name">zhangyuanzhen</li>
+      <li>等级: 初级会员</li>
+      <li><a href='http://zhangyuanzhen.iteye.com' target='_blank'><img alt="zhangyuanzhen的博客" class="logo" src="http://www.iteye.com/images/user-logo.gif?1324994303" title="zhangyuanzhen的博客: " /></a></li>
+      <li>性别: <img src="/images/icon_minigender_1.gif" title="男"/></li>      <li>文章: 9</li>
+      <li>积分: 30</li>
+      <li>来自: 苏州</li>
+      <li><img src='/images/status/offline.gif'/></li>
+    </ul>
+  </td>
+  <td class="postcontent">
+    <div class="postactions">
+      <div class="description">
+        &nbsp;&nbsp;
+        发表时间：2010-10-18&nbsp;&nbsp;
+        
+      </div>
+      <div class="links">
+        
+        
+          
+          
+          
+        
+      </div>
+    </div>
+    <div class="postbody clearfix">
+      
+      
+      LZ不错滴
+    </div>
+    
+
+            </td>
+  </tr>
+  <tr>
+    <td class="postauthor"><a href="#">返回顶楼</a></td>
+    <td class="postcontent">
+      <div class="icons">
+        <a href='http://zhangyuanzhen.iteye.com' class='icon_www' title='浏览作者的博客'>&nbsp;</a>
+        <a href='http://zhangyuanzhen.iteye.com/blog/profile' class='icon_profile' title='浏览作者资料'>&nbsp;</a>
+        <a href="http://my.iteye.com/messages/new?message%5Breceiver_name%5D=zhangyuanzhen" class="icon_pm" title="发送站内短信">&nbsp;</a>
+        <a href='http://zhangyuanzhen.iteye.com/blog/guest_book' class='icon_guestbook' title='给作者留言'>&nbsp;</a>
+        <a href="http://my.iteye.com/feed?subscription%5Bsubscribed_user_name%5D=zhangyuanzhen" class="icon_rss" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'AeXa/hmkDCKeRsz35wxZGKEfzUx5a7MeoEcBXJbb7o0='); f.appendChild(s);f.submit();return false;" title="关注作者">&nbsp</a>
+                  <a href="#1714740" title="zhangyuanzhen回帖:淘宝 Open API Python SDK">回帖地址</a>
+              </div>
+                        <div id='post_rate_box_1714740' class='post_rate_box'><a href='#' onclick='return false;' class='good' title='好'>0</a> <a href='#' onclick='return false;' class='hidden' title='差'>0</a> 请登录后投票</div>              </td>
+</tr>
+<tr class="sep2"><td colspan="2"></td></tr>
+<tr id="1892690">
+  <td class="postauthor">
+    <ul>
+      <li class="name">flyaswish</li>
+      <li>等级: 初级会员</li>
+      <li><a href='http://flyaswish.iteye.com' target='_blank'><img alt="flyaswish的博客" class="logo" src="http://www.iteye.com/images/user-logo.gif?1324994303" title="flyaswish的博客: FlyAsWish" /></a></li>
+      <li>性别: <img src="/images/icon_minigender_1.gif" title="男"/></li>      <li>文章: 21</li>
+      <li>积分: 40</li>
+      <li>来自: 无锡</li>
+      <li><img src='/images/status/offline.gif'/></li>
+    </ul>
+  </td>
+  <td class="postcontent">
+    <div class="postactions">
+      <div class="description">
+        &nbsp;&nbsp;
+        发表时间：2011-02-09&nbsp;&nbsp;
+        
+      </div>
+      <div class="links">
+        
+        
+          
+          
+          
+        
+      </div>
+    </div>
+    <div class="postbody clearfix">
+      
+      
+      最近有更新吗？
+    </div>
+    
+
+            </td>
+  </tr>
+  <tr>
+    <td class="postauthor"><a href="#">返回顶楼</a></td>
+    <td class="postcontent">
+      <div class="icons">
+        <a href='http://flyaswish.iteye.com' class='icon_www' title='浏览作者的博客'>&nbsp;</a>
+        <a href='http://flyaswish.iteye.com/blog/profile' class='icon_profile' title='浏览作者资料'>&nbsp;</a>
+        <a href="http://my.iteye.com/messages/new?message%5Breceiver_name%5D=flyaswish" class="icon_pm" title="发送站内短信">&nbsp;</a>
+        <a href='http://flyaswish.iteye.com/blog/guest_book' class='icon_guestbook' title='给作者留言'>&nbsp;</a>
+        <a href="http://my.iteye.com/feed?subscription%5Bsubscribed_user_name%5D=flyaswish" class="icon_rss" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'AeXa/hmkDCKeRsz35wxZGKEfzUx5a7MeoEcBXJbb7o0='); f.appendChild(s);f.submit();return false;" title="关注作者">&nbsp</a>
+                  <a href="#1892690" title="flyaswish回帖:淘宝 Open API Python SDK">回帖地址</a>
+              </div>
+                        <div id='post_rate_box_1892690' class='post_rate_box'><a href='#' onclick='return false;' class='good' title='好'>0</a> <a href='#' onclick='return false;' class='hidden' title='差'>0</a> 请登录后投票</div>              </td>
+</tr>
+<tr class="sep2"><td colspan="2"></td></tr>
+
+  </tbody>
+</table>
+
+
+<div class="actions">
+  <div class="buttons"></div>
+  <div class="wrapper"></div>
+</div>
+
+<div>
+  <div class="crumbs">
+    <a href="/forums">论坛首页</a> <span class="arrow">&rarr;</span>
+    <a href="/forums/board/language">编程语言技术版</a>
+    <br/><br/>跳转论坛:<select id="forum_urlname" name="forum[urlname]" onchange="window.location='/forums/board/'+this.value"><option value="mobile">移动开发技术</option>
+<option value="web">Web前端技术</option>
+<option value="Java">Java企业应用</option>
+<option value="language" selected="selected">编程语言技术</option>
+<option value="Tech">综合技术</option>
+<option value="New">入门技术</option>
+<option value="Job">招聘求职</option>
+<option value="Life">海阔天空</option></select>
+    
+  </div>
+
+  
+</div>
+
+<div style="display:none">
+  <form action="/posts/rate" id="post_rate_form" method="post" onsubmit="new Ajax.Request('/posts/rate', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this)}); return false;"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="AeXa/hmkDCKeRsz35wxZGKEfzUx5a7MeoEcBXJbb7o0=" /></div>
+    <input type="hidden" id="post_rate_id" name="id"/>
+    <input type="hidden" id="post_rate_type" name="type"/>
+  </form></div>
+
+<script type="text/javascript">
+  function processComment() {
+    fix_image_size($$('div.postbody img'), 760);
+    
+    $$('#forum_main > #posts > tr[id]').each(function(tr){
+      var post_id = tr.id;
+      $$("#"+post_id+" pre[name=code]").each(function(pre, index){
+        var location = window.location;
+        source_url = location.protocol + "//" + location.host + location.pathname + location.search;
+        source_url += "#" + post_id;
+        pre.writeAttribute('codeable_type', 'Post');
+        pre.writeAttribute('codeable_id', post_id);
+        pre.writeAttribute('source_url', source_url);
+        pre.writeAttribute('pre_index', index);
+        pre.writeAttribute('title', '淘宝 Open API Python SDK');
+      });
+    });
+  }
+
+  dp.SyntaxHighlighter.HighlightAll('code', true, true);
+  processComment();
+  code_favorites_init();
+
+  function rate_post(id, type) {
+    Element.update('post_rate_box_' + id, '提交中...');
+    new Ajax.Request('/posts/rate', {asynchronous:true, evalScripts:true, parameters:{"id":id, "type":type}});
+  }
+
+  function rate_topic(type) {
+    Element.update('topic_rate_box', '提交中...');
+    new Ajax.Request('/topics/rate', {asynchronous:true, evalScripts:true, parameters:{"id":634202, "type":type}});
+  }
+</script>
+
+
+
+        </div>
+        <div id="nav">
+  <div class="wrapper">
+    <ul>
+            <li><a href="http://www.iteye.com/">首页</a></li>
+      <li><a href="http://www.iteye.com/news">资讯</a></li>
+      <li><a href="http://www.iteye.com/magazines">精华</a></li>
+      <li><a href="http://www.iteye.com/forums" class='selected'>论坛</a></li>
+      <li><a href="http://www.iteye.com/ask">问答</a></li>
+      <li><a href="http://www.iteye.com/blogs">博客</a></li>
+      <li><a href="http://www.iteye.com/blogs/subjects">专栏</a></li>
+      <li><a href="http://www.iteye.com/groups">群组</a></li>
+      <li><a target="_blank" href="http://job.iteye.com/iteye">招聘</a></li>
+      <li class="last"><a href="http://www.iteye.com/search">搜索</a></li>
+    </ul>
+  </div>
+</div>
+      </div>
+      <div id="footer">
+  <div id="site_nav">
+    <ul>
+      <li><a href="/index/service">广告服务</a></li>
+      <li><a href="http://webmaster.iteye.com">ITeye黑板报</a></li>
+      <li><a href="/index/contactus">联系我们</a></li>
+      <li class="last"><a href="/index/friend_links">友情链接</a></li>
+    </ul>
+  </div>
+  <div id="copyright">
+    &copy; 2003-2014 ITeye.com.    [ <a href="http://www.miibeian.gov.cn">京ICP证110151号</a>  京公网安备110105010620 ]<br/>
+    百联优力(北京)投资有限公司  版权所有<br />
+  </div>
+</div>
+
+    </div>
+    <script type="text/javascript">
+  document.write("<img src='http://stat.iteye.com/?url="+ encodeURIComponent(document.location.href) + "&referrer=" + encodeURIComponent(document.referrer) + "&user_id=' width='0' height='0' />");
+</script>
+
+<script src="http://csdnimg.cn/pubfooter/js/tracking.js?version=20130923164150" type="text/javascript"></script>
+
+  </body>
+</html>

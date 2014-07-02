@@ -1,11 +1,11 @@
-# coding=utf-8
+﻿# coding=utf-8
 #-*- coding utf8 -*-
 #889531705
 #dpb3rvn
 #if8gaim
 from dm.basic import *
 
-class DataCollection():
+class DataCollection(object):
     pass
 
 class SoftData( DataCollection ):
@@ -27,12 +27,14 @@ class StructTxt( object ):
     struc = None
     title = []
     dataGot = {}
-    def read( fn ):
+    def read( self, fn ):
         fp = open( fn )
         data = fp.read()
         fp.close()
 
 class CsvTxt( StructTxt ): # use csv module instead
+    # ??? this class could use csv module instead
+
     # !!!!!!!!!!!!!!!!!!!! dt format check and convert!!!!!!!!!!!!!!
     fType = 1  # 1: SPT_GLD-MIN1K.CSV    2: EU.TXT  (1st line is the title line, contains product name)
     def transData2Db( self, fn ):  # titleLn whether exist the title line in 1st line

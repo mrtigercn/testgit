@@ -1,5 +1,51 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from pandas import *
+
+randn = np.random.randn
+s = Series(randn(5), index=['a', 'b', 'c', 'd', 'e'])
+s + s
+s - s
+s * s
+s / s
+s * 2
+
+s = Series(randn(5))
+s[0]
+
+sa = Series([1,2,3],index=list('abc'))
+sa.a
+sa['a']
+sa.b
+Series(5., index=['a', 'b', 'c', 'd', 'e'])
+
+
+d = {'one' : Series([1., 2., 3.], index=['a', 'b', 'c']), 'two' : Series([1., 2., 3., 4.], index=['a', 'b', 'c', 'd'])}
+df = DataFrame(d)
+df.one
+df.one.a
+df.a # ???
+
+DataFrame(d, index=['d', 'b', 'a'])
+DataFrame(d, index=['d', 'b', 'a'], columns=['two', 'three'])
+df.index
+df.columns
+	
+
+d = {'one' : [1., 2., 3., 4.], 'two' : [4., 3., 2., 1.]}
+df1 = DataFrame(d)
+
+DataFrame(d, index=['a', 'b', 'c', 'd'])
+
+
+
+
+
+
+
+
+
+
 
 import pandas as pd
 

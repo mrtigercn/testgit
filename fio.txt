@@ -164,3 +164,12 @@ f = open("foo","rb")
 q = Point()
 f.readinto(q)
 
+
+
+# text file
+fp = open(r'C:\Users\c52139\Documents\marketdata-yun\沪深 港澳资讯 2014年6月26日F10\SZF10\SZF10\000909.txt')
+s1 = fp.readline()
+s2 = fp.readlines(?)
+sAllLn = fp.readlines() # read all line
+sAll = fp.read()
+
