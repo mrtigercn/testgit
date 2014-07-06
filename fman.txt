@@ -25,11 +25,11 @@ def get_filepaths(directory):
             file_paths.append(filepath)  # Add it to the list.
     return file_paths  # Self-explanatory.
 
-mypath='c:\\windows'
+mypath='d:\\'
 fL = get_filepaths(mypath)
 
 import sqlite3
-conn = sqlite3.connect(r'd:\testfm.db')
+conn = sqlite3.connect(r'd:\testfm1.db')
 cur = conn.cursor()
 cur.execute( 'drop table if exists filelist' )  # include extension in fn as a single search target (but seg particluarly )
 cur.execute( 'create table if not exists filelist(fn, path)' )  # include extension in fn as a single search target (but seg particluarly )
@@ -52,6 +52,14 @@ def substr(string, minlen=0, maxlen=-1):  # value of len para is str's max index
     return a
 
 
+def rSubstr(string):
+    a=[] #set()
+    # better if 2-bytes coding can be identified
+    for leftTrunc in range(len(string)):
+      a.append(string[leftTrunc:])
+    return a
+
+
 def splits(str, delimiters):
   rslt = []
   tmps = ''
@@ -71,16 +79,18 @@ def segStr(string, minl=0, maxl=-1):  # value of len para is str's max index, ac
     if len(tmp)>1:
       a.append( tmp[1] )
     fpLongNameFileLog = open( 'LongNameFile.log', 'a' )
-    if len( tmp[0] ) > 20:
-      tmpSegs = splits( tmp[0], ' .-_' )
-      for s in tmpSegs:
-        if len(s) > 20:
+    #if len( tmp[0] ) > 20:
+    tmpSegs = splits( tmp[0], ' .-_~{}' )
+    segNum = len( tmpSegs )
+    for s in tmpSegs:
+      if len(s) > 30:  # multi-words? what strategy? what will be such string? further split with ~() ?
+        if segNum > 2:  # !!! need to optimize how to search if this long seg is the only seg of this fn
           fpLongNameFileLog.write( string.encode('utf8') ) #print string # replace with log later
           fpLongNameFileLog.write( '\n' ) #print string # replace with log later
           continue
-        a.extend( substr(s, min( len(s)/5, 2 ), maxlen=maxl) )
-    else:
-      a = substr( tmp[0], min( len(tmp[0])/5, 2 ), maxlen=maxl )
+      a.extend( substr(s, min( len(s)/5, 2 ), maxlen=maxl) )
+    #else:
+    #  a = substr( tmp[0], min( len(tmp[0])/5, 2 ), maxlen=maxl )
     fpLongNameFileLog.close()
     return a
 
@@ -96,11 +106,10 @@ for fn,path in fL:
   #segFnList.append( len(segList) )
   for seg in segList:
     segFnList.append( (seg,fn) )
+
 fpHeaveSegFileLog.close()
 
-set(segFnList)
-
-cur.executemany( 'insert into seglist values (?,?)', fL )
+cur.executemany( 'insert into seglist values (?,?)', list( set(segFnList) ) )
 conn.commit()
 
 
@@ -132,3 +141,35 @@ l=[('a','aa'),('b','bb'),('b','bb'),('b','bbb')]
 # n:9-...    sub:3-6        2(2n-2+1)/2=2n-1   8n-28 - (2n-1)  = 6n-27
 # n>20???
 
+
+
+
+
+
+
+
+
+
+
+
+# con: version search v3.2.1
+def segStr1(string, minl=0, maxl=-1):  # value of len para is str's max index, actual length is 1 + para value
+    a=[] #set()
+    tmp = string.rsplit( '.', 1 )
+    if len(tmp)>1:
+      a.append( tmp[1] )
+    fpLongNameFileLog = open( 'LongNameFile.log', 'a' )
+    #if len( tmp[0] ) > 20:
+    tmpSegs = splits( tmp[0], ' .-_~{}' )
+    segNum = len( tmpSegs )
+    for s in tmpSegs:
+      if len(s) > 30:  # multi-words? what strategy? what will be such string? further split with ~() ?
+        if segNum > 2:  # !!! need to optimize how to search if this long seg is the only seg of this fn
+          fpLongNameFileLog.write( string.encode('utf8') ) #print string # replace with log later
+          fpLongNameFileLog.write( '\n' ) #print string # replace with log later
+          continue
+      a.extend( substr(s, min( len(s)/5, 2 ), maxlen=maxl) )
+    #else:
+    #  a = substr( tmp[0], min( len(tmp[0])/5, 2 ), maxlen=maxl )
+    fpLongNameFileLog.close()
+    return a

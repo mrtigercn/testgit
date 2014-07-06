@@ -173,3 +173,16 @@ added, removed, modified, same = dict_compare(x, y)
 import pprint
 pprint.pprint(x)
 
+
+s = 'she sells sea shells by the sea shore'
+ss = 'M2000开站功能使用篇(二)DHCP过程 - 企业无线验证与交付部 - 3ms知识管理社区.mht'
+
+import hashlib
+int(hashlib.sha1(s).hexdigest(), 16) % (10 ** 8)
+
+abs(hash(s)) % (10 ** 8)
+
+i = 5
+import sys
+sys.getsizeof(i)
+
