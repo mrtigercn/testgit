@@ -1,3 +1,35 @@
+import Tkinter
+
+root = Tkinter.Tk()
+canv = Tkinter.Canvas(root, width=600, height=210, scrollregion=(0,0,2200,800))
+canv.grid(row=0,column=0)
+scrollY = Tkinter.Scrollbar(root, orient='vertical', command=canv.yview)
+scrollY.grid(row=10,column=11,sticky='ns')
+scrollX = Tkinter.Scrollbar(root, orient='horizontal', command=canv.xview)
+scrollX.grid(row=1,column=0,sticky='ew')
+canv['xscrollcommand']=scrollX.set
+canv['yscrollcommand']=scrollY.set
+
+
+
+
+import Tix
+root = Tix.Tk()
+hl = Tix.HList(root, columns = 5, header = True)
+hl.pack(expand=1, fill=Tix.BOTH, padx=10, pady=10, side=Tix.LEFT)
+hl.header_create(0, text = "File")
+hl.header_create(1, text = "Path")
+hl.header_create(2, text = "ext")
+hl.header_create(3, text = "Size")
+hl.header_create(4, text = "Date")
+
+
+
+scroll = Tkinter.Scrollbar(hl, orient='vertical', width=20)
+scroll.pack(expand='yes', fill='x')
+
+
+
 from Tkinter import *
 
 top = Tk()
@@ -53,6 +85,9 @@ root.tk.eval('package require Tix')
 root = Tix.Tk()
 # setup HList
 hl = Tix.HList(root, columns = 5, header = True)
+
+hl.pack(expand=1, fill=Tix.BOTH, padx=10, pady=10, side=Tix.LEFT)
+
 hl.header_create(0, text = "File")
 hl.header_create(1, text = "Date")
 hl.header_create(2, text = "Size")
@@ -61,6 +96,18 @@ hl.add("row1", text = "filename.txt")
 hl.item_create('row1', 1, text = "2009-03-26 21:07:03")
 hl.item_create('row1', 2, text = "200MiB")
 
+hl.header_create(3, text = "Path")
+hl.item_create('row1', 3, text = "c:\\")
+hl.add("row2", text = "2filename.txt")
+hl.item_create('row2', 1, text = "22009-03-26 21:07:03")
+hl.item_create('row2', 2, text = "2200MiB")
+hl.item_create('row2', 3, text = "2c:\\")
+
+for i in range(10):
+  hl.add("row%i"%(i+3), text = "%ifilename.txt"%i)
+  hl.item_create('row%i'%(i+3), 1, text = "22009-03-26 21:07:03")
+  hl.item_create('row%i'%(i+3), 2, text = "2200MiB")
+  hl.item_create('row%i'%(i+3), 3, text = "2c:\\")
 
 
 root = Tix.Tk()

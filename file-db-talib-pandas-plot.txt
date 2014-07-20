@@ -23,6 +23,11 @@ rec = {}
 #cur.execute( 'insert into dayK values ("%s", %s, %s, %s, %s, %s, %s, %s)' % ( 'sz000001', k1.date, float(k1.o)/100, float(k1.h)/100, float(k1.l)/100, float(k1.c)/100, float(k1.amnt)/10000, k1.vol/10000) )
 #conn.commit()
 
+
+#replace into
+#prepared statment
+
+
 import os
 for f in fLst:
   fp = open(os.path.join( f[1], f[0] ), "rb")
