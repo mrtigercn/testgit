@@ -4,6 +4,7 @@ content1 = urllib2.urlopen('http://3ms.huawei.com/hi/blog/list_155251.html').rea
 content = urllib2.urlopen('http://www.taobao.com').read()
 
 from sgmllib import SGMLParser
+#另htmllib和sgmllib在python3已经被取消，不建议使用    可以使用html.parser.HTMLParser
 
 class ListName(SGMLParser):
   def __init__(self):
