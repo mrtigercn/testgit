@@ -13,7 +13,7 @@ class GetBlogListPerPaper(SGMLParser):
 
   def start_dl(self, attrs):
     for k,v in attrs:
-      if k == 'class' and v == 'list_dl'£º
+      if k == 'class' and v == 'list_dl':
         self.enter_dl = True
         return
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
-from blogProcessAPI importr BlogProcess
+from blogProcessAPI import BlogProcess
 
 getBlog_3ms = BlogProcess()
 username = raw_input("please input your domain account:")
@@ -10,7 +10,7 @@ password = raw_input("please input your password:")
 open_dir_path = r"d:\123\download"
 save_dir_path = r"d:\123\content"
 
-origURL = raw_input("please input the entrance page address vof blog:")
+origURL = raw_input("please input entrance page address of the blog:")
 if not origURL.startswith("http"):
   print "url must start with http"
 

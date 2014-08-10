@@ -10,7 +10,7 @@ class GetPaperAddr(SGMLParser):
     self.paper_addr = []
     SGMLParser.reset(self)
 
-  def start_div(self. attrs):
+  def start_div(self, attrs):
     for k,v in attrs:
       if k == 'class' and v == 'page mb20 alR mt5':
         self.enter_div = True
@@ -31,7 +31,7 @@ class GetPaperAddr(SGMLParser):
       print "address of page: " + i
 
   def getPaperNum(self):
-    paper_num = 1£»
+    paper_num = 1;
     paper_index = []
     if len(self.paper_addr) == 0:
       return 1

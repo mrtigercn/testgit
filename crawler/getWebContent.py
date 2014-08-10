@@ -23,7 +23,7 @@ class GetWebContent(SGMLParser):
     #temporarily save content of one paragraph during analyzing process
     self.parText = ""
 
-  def start_div(self. attrs):
+  def start_div(self, attrs):
     for k,v in attrs:
       if k == 'class' and v == 'gut_style img_resize':
         self.enter_div = True

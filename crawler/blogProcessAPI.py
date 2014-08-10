@@ -7,7 +7,7 @@ import urllib2, urllib
 import cookielib
 import os
 
-from getBlogListPerPaper importr GetBlogListPerPaper
+from getBlogListPerPaper import GetBlogListPerPaper
 from getPaperAddr import GetPaperAddr
 from getWebContent import GetWebContent
 
@@ -35,7 +35,7 @@ class BlogProcess(object):
     self.origURL = origURL
 
   def login(self):
-    params = ('actionFlag':"loginAuthenticate", "lang":"en", \
+    params = {'actionFlag':"loginAuthenticate", "lang":"en", \
               "loginMethod":"login", "loginPageType":"mix", \
               "redirect":"http%3A%2F%2F3ms.huawei.com%2FiPage%2Fhomepage%2Fhomepage.do%3FhomeText%3Dnul%26language%3Dcn%26method%3DshowHomepage",\
     "redirect_local":"","redirect_modify":"","scanedFinPrint":"",\
@@ -43,7 +43,7 @@ class BlogProcess(object):
 
     print 'login......'
     # start to login
-    reg = urllib2.Request('https://login.huawei.com/login/login.do;, urllib.urlencode(params))
+    reg = urllib2.Request('https://login.huawei.com/login/login.do', urllib.urlencode(params))
     self.operate = self.opener.open(req)
 
     # check whether succeed by cookie feedback by server after login
@@ -95,7 +95,7 @@ class BlogProcess(object):
 
     # get blog list on following pages
     while index <= paperNum:
-      print "get blog list on page %d..." %£¨index)
+      print "get blog list on page %d..." % (index)
       webAddr = self.origURL + r"?&p=%d" % (index)
       print webAddr
       index += 1
@@ -129,7 +129,7 @@ class BlogProcess(object):
           filename = filenmae.replace(i, "")
       filename = filenmae.decode("utf-8") + r".html"
 
-      dist os.path.join(save_path, filenmae)
+      dist = os.path.join(save_path, filename)
       print dist
 
       htmlCode = self.getWebContent(im[0])
